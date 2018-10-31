@@ -27,26 +27,30 @@ is_linux(){
   [ "$(uname -s)" = Linux ]
 }
 
+info "Make sure Xcode is installed and is in /Application"
+sudo xcode-select -s /Applications/Xcode.app/Contents/Developer
+
 info "Make sure you manually install https://github.com/asdf-vm/asdf"
 
 if is_osx; then
+  info "Checking for command-line tools..."
+  if ! command -v xcodebuild > /dev/null; then
+    xcode-select --install
+  fi
+
   info "Installing Homebrew if not already installed..."
   if ! command -v brew > /dev/null; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   fi
 
-  brew link --overwrite --force qt@5.5 &>/dev/null
-
   info "Installing Homebrew packages..."
   brew tap homebrew/bundle
-  for brewfile in Brewfile Brewfile.casks */Brewfile; do
+  for brewfile in Brewfile Brewfile.casks; do
     quietly_brew_bundle "$brewfile"
   done
-
-  info "Checking for command-line tools..."
-  if ! command -v xcodebuild > /dev/null; then
-    xcode-select --install
-  fi
+  info "Install Mac App Store Applications"
+  mas install 585829637 # todoist
+  mas install 937984704 # Amphetamine
 fi
 
 if ! echo "$SHELL" | grep -Fq zsh; then

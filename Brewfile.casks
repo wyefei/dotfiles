@@ -1,13 +1,17 @@
 # Cask: install binaries.
 # These are in a separate file so that install.sh can let installing these casks
 # "fail" when the apps are actually already installed.
-#cask 'alfred'
-#cask 'dropbox'
-#cask 'google-chrome'
-#cask '1password'
-#cask 'atom'
+cask 'alfred'
+cask 'dropbox'
+cask 'google-chrome'
+cask '1password'
+cask 'atom'
+cask 'iterm2'
+cask 'spectacle'
 
 # TODO
 # Mac App Store Applications
 # todoist
 # mas 585829637
+# Amphetamine
+# mas 937984704

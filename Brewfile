@@ -5,14 +5,12 @@ cask_args appdir: '/Applications'
 # Lets us do `brew services restart postgres`, etc
 tap 'homebrew/services'
 
-# Old versions of some packages
-tap 'homebrew/versions'
-
 tap 'homebrew/bundle'
 
 brew 'coreutils'
 
 # The recommended way to use Heroku
+tap 'heroku/brew'
 brew 'heroku'
 
 # Use version 3.4+ for colorful diffs with --color
