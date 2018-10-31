@@ -27,7 +27,7 @@ is_linux(){
   [ "$(uname -s)" = Linux ]
 }
 
-info "Make sure you anually install https://github.com/asdf-vm/asdf"
+info "Make sure you manually install https://github.com/asdf-vm/asdf"
 
 if is_osx; then
   info "Installing Homebrew if not already installed..."
@@ -67,3 +67,12 @@ fi
 
 info "Installing Vim packages..."
 vim +PlugInstall +qa
+
+info "Running all setup scripts..."
+for setup in tag-*/setup; do
+  dir=$(basename "$(dirname "$setup")")
+  info "Running setup for ${dir#tag-}..."
+  . "$setup"
+done
+
+asdf install
