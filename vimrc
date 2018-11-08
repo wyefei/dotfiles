@@ -77,7 +77,7 @@ set showmatch " Show matching braces
 set listchars=trail:· " Show tabs and trailing whitespace only
 set colorcolumn=100 " Show vertical column
 " Use zsh
-set shell=/usr/local/bin/zsh
+set shell=/bin/zsh
 " ctags
 set tags=./tags,tags;
 

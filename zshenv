@@ -12,7 +12,6 @@ alias gpf='git push -f'
 alias gclean='git reflog expire --expire=now --all; git gc --prune=now'
 alias bs='bundle exec sidekiq -c 5 -i 1 -C config/sidekiq_dev.yml'
 alias es='elasticsearch --config=/usr/local/opt/elasticsearch/config/elasticsearch.yml'
-alias prodc='heroku run rails c -a hired-production'
 
 gpoc() {
   local mybranch=$(git rev-parse --abbrev-ref HEAD) || return

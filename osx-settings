@@ -1,0 +1,15 @@
+# Show only open applications in the Dock
+defaults write com.apple.dock static-only -bool true
+
+# Automatically hide and show the Dock
+defaults write com.apple.dock autohide -bool true
+
+# Move the dock to the left side
+defaults write com.apple.dock orientation left
+
+
+for app in "Dock"; do
+	killall "${app}" &> /dev/null
+done
+
+echo "Done. Note that some of these changes require a logout/restart to take effect."
